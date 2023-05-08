@@ -4,7 +4,7 @@
     - **`insert(value, position)`**: Insert a new node with the specified value at the given position in the list.
     - **`delete(position)`**: Delete the node at the given position from the list.
     - **`search(value)`**: Search for a node with the specified value and return its position.
-    - **`length()`**: Return the number of nodes in the list.
+    - **`size()`**: Return the number of nodes in the list.
 
 */
 
@@ -96,6 +96,9 @@ class MyLinkedList {
       currentNode = currentNode?.next!;
     }
     return null;
+  }
+  size() {
+    return this.length;
   }
 }
 
