@@ -36,21 +36,21 @@ class Queue<T> {
 			this.front = newNode;
 			this.back = newNode;
 			this.length++;
-			console.log(`${newNode} has been enqued successfully!`);
+			console.log(`${newNode.value} has been enqued successfully!`);
 			return;
 		}
 		if (this.length === 1 && this.front) {
 			this.back = newNode;
 			this.front.next = newNode;
 			this.length++;
-			console.log(`${newNode} has been enqued successfully!`);
+			console.log(`${newNode.value} has been enqued successfully!`);
 			return;
 		}
 		if (this.back) {
 			this.back.next = newNode;
 			this.back = newNode;
 			this.length++;
-			console.log(`${newNode} has been enqued successfully!`);
+			console.log(`${newNode.value} has been enqued successfully!`);
 			return;
 		}
 	}
@@ -64,7 +64,7 @@ class Queue<T> {
 			const dequeuedItem = this.front;
 			this.front = null;
 			this.back = null;
-			console.log(`${dequeuedItem} has been dequeued!`);
+			console.log(`${dequeuedItem?.value} has been dequeued!`);
 			this.length--;
 			return dequeuedItem;
 		}
@@ -74,12 +74,21 @@ class Queue<T> {
 			dequeuedItem = this.front;
 			this.front = this.front.next;
 			this.length--;
-			console.log(`${dequeuedItem} has been dequeued!`);
+			console.log(`${dequeuedItem?.value} has been dequeued!`);
 			return dequeuedItem;
 		}
-		console.log(`${dequeuedItem} has been dequeued!`);
 		return dequeuedItem;
 		return null;
 	}
-
 }
+
+const queue = new Queue<string>();
+queue.isEmpty();
+queue.enqueue(new QueueNode<string>('A'));
+queue.enqueue(new QueueNode<string>('b'))
+queue.peek();
+queue.size();
+queue.dequeue();
+queue.dequeue();
+queue.isEmpty();
+queue.dequeue();
