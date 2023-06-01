@@ -1,25 +1,57 @@
 class BinaryNode<T> {
-	value: T;
-	left: TreeNode<T> | null;
-	right: TreeNode<T> | null;
+	public value: T;
+	public left: T | null;
+	public right: T | null;
 
-	constructor(val: T) {
-		this.value = val;
+	constructor(value: T) {
+		this.value = value;
 		this.left = null;
 		this.right = null;
 	}
 }
 
 class BinaryTree<T> {
-	root: TreeNode<T> | null;
+	public root: BinaryNode<T> | null;
 
-	constructor(node: BinaryNode<T> | null) {
-		this.root = node;
+	constructor() {
+		this.root = null;
 	}
 
-	insert(val: T, inputNode: BinaryNode<T> | null) {
-		if (this.root === null) this.root = inputNode;
-	}	if ()
+	add(value: T) {
+		let newNode = new BinaryNode(value);
+
+
+
+	}
+	
 }
 
-//insert(34)
+//newTree.add(13)
+
+/*
+
+	1
+
+
+
+check root node
+if the root node is empty, we can assign the root node pointer to the new node.
+
+let currentNode;
+
+
+
+if it is not empty, we will check if the input node's value is less than the value of that root node
+
+if it is less, then we will check if there is a node at the position on the left.
+
+if there is not a node, we will set the roots left pointer to the node here
+
+if there is a node, we will check if the input nodes value is less then the value
+
+
+
+
+
+
+*/
