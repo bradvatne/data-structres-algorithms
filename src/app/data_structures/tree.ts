@@ -1,7 +1,7 @@
 class TreeNode<T> {
-	value: T;
-	left: TreeNode<T> | null;
-	right: TreeNode<T> | null;
+	public value: T;
+	public left: TreeNode<T> | null;
+	public right: TreeNode<T> | null;
 
 	constructor(value: T) {
 		this.value = value;
@@ -13,42 +13,36 @@ class TreeNode<T> {
 class BasicUnbalancedTree<T> {
 	root: TreeNode<T> | null;
 
-	constructor() {
+	constructor(value: T) {
 		this.root = null;
 	}
 
-	insert(node: TreeNode<T> | null, value: T) {
-		if (node === null) {
-			return new TreeNode(value);
-		} else if (value < node.value) {
-			node.left = this.insert(node.left, value);
-		} else if (value > node.value) {
-			node.right = this.insert(node.right, value);
-		}
-
-		return node;
+	isEmpty(): boolean {
+		return this.root === null;
 	}
 
-	find(node: TreeNode<T> | null, value: T): boolean {
-		if (node === null) {
-			return false;
-		} else if (node.value === value) {
-			return true;
-		} else if (value < node.value) {
-			this.find(node.left, value);
-		} else if (value > node.value) {
-			this.find(node.right, value);
-		}
+	insert(value: T): void {
+		const node = new TreeNode<T>(value);
 
-		return false;
-	}
+		if (this.isEmpty()) {
+			this.root = node;
+		} else {
+			let currentNode: TreeNode<T> | null = this.root;
 
-	delete(node: TreeNode<T> | null, value: T): TreeNode<T> | null {
-		if (node === null) {
-			return null;
-		} else if (node.value === value) {
-			
+			while (currentNode) {
+				if (value > currentNode.value) {
+					if (currentNode.right === null) {
+						currentNode.right = node;
+						return;
+					}
+					currentNode = currentNode.right;
+				} else {
+					if (currentNode.left === null) {
+						currentNode.left = node;
+						return;
+					}
+				}
+			}
 		}
-		return node;
 	}
 }
