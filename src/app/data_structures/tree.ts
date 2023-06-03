@@ -1,11 +1,11 @@
 class TreeNode<T> {
   value: T;
-  children: TreeNode<T>[]; // Initialize the property with an empty array
+  children: TreeNode<T>[];
   parent: TreeNode<T> | null;
 
   constructor(value: T) {
     this.value = value;
-    this.children = []; // Initialize the children array
+    this.children = []; 
     this.parent = null;
   }
 
