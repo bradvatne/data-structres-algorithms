@@ -18,16 +18,31 @@ Note that you cannot guarantee the array is sorted.
 
 */
 
-const fn = (arr: number[], goal: number) => {
+//my two sum - o(n^2) time - (nested for loops)
+const myTwoSum = (arr: number[], goal: number) => {
   for (let i = 0; i < arr.length - 1; i++) {
     for (let j = 1; j < arr.length; j++) {
       if (arr[i] + arr[j] === goal) {
-        console.log(`success! ${arr[i]} + ${arr[j]} = ${goal}`);
+        //console.log(`success! ${arr[i]} + ${arr[j]} = ${goal}`);
+        return [arr[i], arr[j]];
       }
     }
   }
 };
 
-const testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+//better solution - hash table - o(n)
 
-fn(testArr, 8);
+const twoSum = (nums: number[], target: number): number[] => {
+  let hashTable = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    let complement = target - nums[i];
+    if (hashTable.has(complement)) {
+      return [complement, nums[i]];
+    }
+    hashTable.set(nums[i], i);
+  }
+  return [];
+};
+let nums = [2, 7, 11, 15];
+let target = 9;
+console.log(twoSum(nums, target));
