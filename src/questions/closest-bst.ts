@@ -175,4 +175,3 @@ const closestValueBST2 = (node: TBSTNode<number>, target: number) => {
   return closest;
 };
 
-console.log(closestValueBST2(testTree.root!, 17));
